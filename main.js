@@ -15,8 +15,9 @@ Read the terminal output before and after to see the difference
 ******************************************************************************/
 
 export function start() {
-  //your code here
-  // return true
+  let a ='a'
+  if(a==='a') 
+return true
 };
 
 /******************************************************************************
@@ -31,8 +32,13 @@ received is an even number.
 HINT: Use the modulo operator (%) Google it! 😊
 ******************************************************************************/
 
-export const oddOrEven = () => {
+export const oddOrEven = (TALL) => {
   //your code here
+  if (TALL % 2 === 0){
+    return 'Even'
+    
+  }
+  else{return 'Odd'}
 };
 
 /******************************************************************************
@@ -47,9 +53,11 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
-export function makeMeLoud() {
-  //your code here
-}
+export function makeMeLoud(str) {
+    return str.toUpperCase()+'!';
+  }
+  
+
 
 /******************************************************************************
 3.
@@ -72,8 +80,18 @@ The function should return:
 
 ******************************************************************************/
 
-export const greeter = () => {
-  //your code here
+export const greeter = (navn, klokken) => {
+  if (klokken < 0 || klokken > 23) {
+    return "Invalid time";
+  } else if (klokken > 0 && klokken <= 5) {
+    return "Good night " + navn;
+  } else if (klokken >= 6 && klokken <= 11) {
+    return "Good morning " + navn;
+  } else if (klokken >= 12 && klokken <= 17) {
+    return "Good day " + navn;
+  } else if (klokken >= 18 && klokken <= 23) {
+    return "Good evening " + navn;
+  }
 };
 
 /******************************************************************************
@@ -90,8 +108,11 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
-export function arrayTrimmer() {
-  //your code here
+export function arrayTrimmer(test) {
+  test.pop();
+  test.shift();
+  return test;
+
 }
 
 /******************************************************************************
@@ -113,8 +134,9 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
-  //your code here
+export const cleanAndFun = (rydde) => {
+
+  return rydde.trim().replace("hard", "fun");
 };
 
 /******************************************************************************
@@ -137,8 +159,11 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
-  //your code here
+export function marvelEditor(heroes) {
+  heroes.shift();
+  heroes[2] = "Skrull";
+  heroes.splice(0, 2, "Captain America");
+  return heroes.join("💪");
 }
 
 /******************************************************************************
@@ -168,8 +193,20 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
-  //your code here
+export function coolMaker(coolCakes) {
+  if(typeof coolCakes === 'string'){
+    return "😎" + coolCakes + "😎";
+  }
+  else if(typeof coolCakes === 'number'){
+    coolCakes = coolCakes * 2;
+    return "😎" + String(coolCakes) + "😎";
+
+  }
+  else if(typeof coolCakes === 'boolean')
+    if ( coolCakes=== true){
+      return "😎Yeah😎" 
+    }else{return "😎Chill😎"}
+  else{return"😎Primitive values only😎"}
 }
 
 /******************************************************************************
@@ -195,6 +232,13 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
-export const addOrRemove = () => {
-  //your code here
+export const addOrRemove = (array_check, string_check) => {
+  if(array_check.includes(string_check)){
+  //  delete array_check[array_check.indexOf(string_check)];
+  //   return array_check
+     array_check.splice(array_check.indexOf(string_check),1)
+     return array_check
+  }else
+    array_check.push(string_check)
+    return array_check
 };
